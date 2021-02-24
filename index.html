@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rock Paper Scissors</title>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+    <script>
+        // Create function that gives you back random answer for the computer selection
+        function computerPlay() {
+            // Define variable random that is an integer and returns a value from 0-2
+            let random = Math.floor(Math.random() * 3);
+
+            switch (random) {
+                case 0: 
+                    return "rock";
+                    break;
+                case 1:
+                    return "paper";
+                    break;
+                case 2:
+                    return "scissors";
+                    break;
+            }
+        }
+
+        // Create function that runs one round of rock paper scissors
+        function playRound(playerSelection, computerSelection){
+            switch (playerSelection) {
+                case "paper":
+                    if (computerSelection === "paper") {
+                        return "It's a tie!" + " " + computerSelection + " matches " + playerSelection;
+                    } else if (computerSelection) === "scissors") {
+                        return 
+                    }
+            }
+
+        }
+
+        // Create a loop to prompt user for choice but only stop prompting if there's the correct input
+        let keepRunning = true;
+        while (keepRunning === true){
+            // Create string variable playerSelection to store the user selection
+            let playerSelection = prompt("Rock, paper, or scissors?");
+            // Convert user input to all lower case
+            playerSelection = playerSelection.toLowerCase();
+
+            if (playerSelection === "rock" || playerSelection === "paper" || playerSelection ==="scissors") {
+                keepRunning = false;
+            }
+        }
+
+        // Create computer selection variable and call function to assign something to it
+        const computerSelection = computerPlay();
+
+    </script>
+</body>
+
+</html>
