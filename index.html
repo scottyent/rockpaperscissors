@@ -14,34 +14,80 @@
             switch (random) {
                 case 0: 
                     return "rock";
-                    break;
                 case 1:
                     return "paper";
-                    break;
                 case 2:
                     return "scissors";
-                    break;
             }
         }
 
         // Create function that runs one round of rock paper scissors
         function playRound(playerSelection, computerSelection){
+            // Decides what to execute based on the selections
             switch (playerSelection) {
+                // What to do if player picked paper
                 case "paper":
                     if (computerSelection === "paper") {
-                        return "It's a tie!" + " " + computerSelection + " matches " + playerSelection;
-                    } else if (computerSelection) === "scissors") {
-                        return 
+                        return `It's a tie! ${playerSelection} matches ${computerSelection}.`
+                    } else if (computerSelection === "scissors") {
+                        return `You lose! ${computerSelection} beats ${playerSelection}.`
+                    } else {
+                        return `You win! ${playerSelection} beats ${computerSelection}.`
+                    }
+                // What to do if player picked scissors
+                case "scissors":
+                if (computerSelection === "scissors") {
+                    return `It's a tie! ${playerSelection} matches ${computerSelection}.`
+                } else if (computerSelection === "rock") {
+                    return `You lose! ${computerSelection} beats ${playerSelection}.`
+                } else {
+                    return `You win! ${playerSelection} beats ${computerSelection}.`
+                }
+                // What to do if player picks rock
+                case "rock":
+                    if (computerSelection === "rock") {
+                        return `It's a tie! ${playerSelection} matches ${computerSelection}.`
+                    } else if (computerSelection === "paper") {
+                        return `You lose! ${computerSelection} beats ${playerSelection}.`
+                    } else {
+                        return `You win! ${playerSelection} beats ${computerSelection}.`
                     }
             }
+        }
 
+        // Create game function
+        function game() {
+
+            // Declare variables
+            let playerWins = 0;
+            let computerWins = 0;
+            // Create computer selection variable and call function to assign something to it
+            const computerSelection = computerPlay();
+
+            // Loop to go through this five times
+            for (let i = 0; i < 5; i++) {
+
+                // Create computer selection variable and call function to assign something to it
+                let computerSelection = computerPlay();
+
+                let result = playRound(playerSelection, computerSelection)
+                console.log(result);
+                if (result.search("win") != 1) {
+                    playerWins = ++playerWins;
+                }
+                else if (result.search("lose") != 1) {
+                    computerWins = ++computerWins;
+                }
+            }
         }
 
         // Create a loop to prompt user for choice but only stop prompting if there's the correct input
         let keepRunning = true;
+        let playerSelection;
+
         while (keepRunning === true){
             // Create string variable playerSelection to store the user selection
-            let playerSelection = prompt("Rock, paper, or scissors?");
+            playerSelection = prompt("Rock, paper, or scissors?");
             // Convert user input to all lower case
             playerSelection = playerSelection.toLowerCase();
 
@@ -49,9 +95,7 @@
                 keepRunning = false;
             }
         }
-
-        // Create computer selection variable and call function to assign something to it
-        const computerSelection = computerPlay();
+        game();
 
     </script>
 </body>
