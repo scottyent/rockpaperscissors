@@ -70,6 +70,21 @@
                 // Create computer selection variable and call function to assign something to it
                 let computerSelection = computerPlay();
 
+                // Create a loop to prompt user for choice but only stop prompting if there's the correct input
+                let keepRunning = true;
+                let playerSelection;
+
+                while (keepRunning === true){
+                    // Create string variable playerSelection to store the user selection
+                    playerSelection = prompt("Rock, paper, or scissors?");
+                    // Convert user input to all lower case
+                    playerSelection = playerSelection.toLowerCase();
+
+                    if (playerSelection === "rock" || playerSelection === "paper" || playerSelection ==="scissors") {
+                        keepRunning = false;
+                    }
+                }
+
                 // Runs a game and stores it in result
                 let result = playRound(playerSelection, computerSelection)
                 
@@ -91,21 +106,6 @@
                 console.log("Better luck next time");
             } else {
                 console.log("It's a tie");
-            }
-        }
-
-        // Create a loop to prompt user for choice but only stop prompting if there's the correct input
-        let keepRunning = true;
-        let playerSelection;
-
-        while (keepRunning === true){
-            // Create string variable playerSelection to store the user selection
-            playerSelection = prompt("Rock, paper, or scissors?");
-            // Convert user input to all lower case
-            playerSelection = playerSelection.toLowerCase();
-
-            if (playerSelection === "rock" || playerSelection === "paper" || playerSelection ==="scissors") {
-                keepRunning = false;
             }
         }
         game();
