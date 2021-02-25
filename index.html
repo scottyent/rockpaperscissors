@@ -70,14 +70,27 @@
                 // Create computer selection variable and call function to assign something to it
                 let computerSelection = computerPlay();
 
+                // Runs a game and stores it in result
                 let result = playRound(playerSelection, computerSelection)
+                
+                // Put the result for each round on the console
                 console.log(result);
+
+                // Increment appopriate score
                 if (result.search("win") != 1) {
                     playerWins = ++playerWins;
                 }
                 else if (result.search("lose") != 1) {
                     computerWins = ++computerWins;
                 }
+            }
+
+            if (playerWins > computerWins) {
+                console.log("You win the whole enchilada");
+            } else if (playerWins > computerWins) {
+                console.log("Better luck next time");
+            } else {
+                console.log("It's a tie");
             }
         }
 
